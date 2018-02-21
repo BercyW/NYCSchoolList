@@ -3,6 +3,7 @@ package security.bercy.com.nycschoollist.view.schooldetails;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -21,6 +22,8 @@ public class SchoolDetailsPresenter implements SchoolDetailsContract.Presenter {
     public static final String TAG = "detail";
     SchoolDetailsContract.View view;
 
+    List<SAT> sats = new ArrayList<>();
+
     @Override
     public void attachView(SchoolDetailsContract.View view) {
         this.view = view;
@@ -28,7 +31,7 @@ public class SchoolDetailsPresenter implements SchoolDetailsContract.Presenter {
 
     @Override
     public void detachView() {
-
+        this.view=null;
     }
 
     @Override
@@ -40,10 +43,10 @@ public class SchoolDetailsPresenter implements SchoolDetailsContract.Presenter {
         SATCall.enqueue(new Callback<List<SAT>>() {
             @Override
             public void onResponse(Call<List<SAT>> call, Response<List<SAT>> response) {
-                List<SAT> sat = response.body();
-                view.setMath(sat.get(0).getSatMathAvgScore());
-                view.setReading(sat.get(0).getSatCriticalReadingAvgScore());
-                view.setWriting(sat.get(0).getSatWritingAvgScore());
+                sats = response.body();
+                view.setMath(sats.get(0).getSatMathAvgScore());
+                view.setReading(sats.get(0).getSatCriticalReadingAvgScore());
+                view.setWriting(sats.get(0).getSatWritingAvgScore());
             }
 
             @Override
