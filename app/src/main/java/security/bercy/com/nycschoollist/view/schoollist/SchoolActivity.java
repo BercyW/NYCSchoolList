@@ -1,7 +1,9 @@
-package security.bercy.com.nycschoollist;
+package security.bercy.com.nycschoollist.view.schoollist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import security.bercy.com.nycschoollist.R;
 
 public class SchoolActivity extends AppCompatActivity {
 
