@@ -1,6 +1,7 @@
 package security.bercy.com.nycschoollist.data;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ import security.bercy.com.nycschoollist.model.School;
  */
 
 public class RemoteDataSource {
-
+    public static final String TAG = "remotedatasource";
 
     Context context;
 
@@ -28,13 +29,16 @@ public class RemoteDataSource {
 
     @Inject
     public RemoteDataSource(String BASE_URL, Context context) {
+
         this.BASE_URL = BASE_URL;
         this.context = context;
     }
 
     public static Call<List<School>> getSchool() {
+
         Retrofit retrofit = create();
         RemoteService remoteService =retrofit.create(RemoteService.class);
+
         return remoteService.getSchool();
     }
 

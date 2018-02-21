@@ -1,6 +1,8 @@
 package security.bercy.com.nycschoollist;
 
 import android.app.Application;
+import android.content.Context;
+import android.util.Log;
 
 import security.bercy.com.nycschoollist.di.component.AppComponent;
 
@@ -8,17 +10,18 @@ import security.bercy.com.nycschoollist.di.component.DaggerAppComponent;
 import security.bercy.com.nycschoollist.di.component.SchoolDetailsComponent;
 import security.bercy.com.nycschoollist.di.component.SchoolListComponent;
 import security.bercy.com.nycschoollist.di.module.AppModule;
+import security.bercy.com.nycschoollist.di.module.SchoolListModule;
 
 /**
  * Created by Bercy on 2/20/18.
  */
 
 public class SchoolApplication extends Application{
-    public static final String BASEURL = "https:https://data.cityofnewyork.us/resource";
+    public static final String BASEURL = "https://data.cityofnewyork.us/resource/";
     private AppComponent appComponent;
     private SchoolListComponent schoolListComponent;
-    private SchoolDetailsComponent schoolDetailsComponent;
 
+    public static final String TAG = "application";
     @Override
     public void onCreate() {
         super.onCreate();
@@ -29,8 +32,21 @@ public class SchoolApplication extends Application{
                 .build();
 
     }
+    public static SchoolApplication get(Context context) {
+        return (SchoolApplication) context.getApplicationContext();
+    }
+
+    public SchoolListComponent getSchoolListComponent() {
+
+        schoolListComponent = appComponent.plus(new SchoolListModule());
+        return schoolListComponent;
+    }
 
 
+    public void clearSchoolListComponent() {
+        schoolListComponent = null;
+
+    }
 
 
 

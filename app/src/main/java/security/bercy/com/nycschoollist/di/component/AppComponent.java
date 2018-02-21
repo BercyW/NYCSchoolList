@@ -12,6 +12,6 @@ import security.bercy.com.nycschoollist.di.scope.AppScope;
 @AppScope
 @Component(modules = AppModule.class)
 public interface AppComponent{
-    SchoolListComponent plus(SchoolListModule recipeListModule);
+    SchoolListComponent plus(SchoolListModule schoolListModule);
 
 }

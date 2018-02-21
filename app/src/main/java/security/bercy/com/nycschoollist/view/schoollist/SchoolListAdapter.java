@@ -25,8 +25,9 @@ import security.bercy.com.nycschoollist.model.School;
 public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.ViewHolder> {
 
     List<School> schoolList;
-
-    public SchoolListAdapter(List<School> schoolList) {
+    Context context;
+    public SchoolListAdapter(Context context,List<School> schoolList) {
+        this.context = context;
         this.schoolList = schoolList;
     }
 

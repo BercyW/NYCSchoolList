@@ -15,7 +15,6 @@ public interface SchoolListContract {
     interface View extends BaseView {
 
         void updateSchool(List<School> schoolList);
-        void showProgress(int MODE);
     }
 
     interface Presenter extends BasePresenter<View> {

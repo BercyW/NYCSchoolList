@@ -1,6 +1,7 @@
 package security.bercy.com.nycschoollist.di.module;
 
 import android.content.Context;
+import android.util.Log;
 
 import dagger.Module;
 import dagger.Provides;
@@ -12,7 +13,7 @@ import security.bercy.com.nycschoollist.di.scope.AppScope;
  */
 @Module
 public class AppModule {
-
+    public static final String TAG = "APPMODULE";
     String BASE_URL;
     Context context;
 
@@ -24,6 +25,7 @@ public class AppModule {
     @AppScope
     @Provides
     RemoteDataSource provideRemoteDataSource(){
+
         return new RemoteDataSource(BASE_URL, context);
     }
 
