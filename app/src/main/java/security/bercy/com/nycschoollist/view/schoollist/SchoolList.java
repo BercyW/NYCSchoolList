@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import security.bercy.com.nycschoollist.R;
 
-public class SchoolActivity extends AppCompatActivity {
+public class SchoolList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
