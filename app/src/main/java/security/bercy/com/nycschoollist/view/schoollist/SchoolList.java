@@ -1,5 +1,6 @@
 package security.bercy.com.nycschoollist.view.schoollist;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -20,8 +21,9 @@ import security.bercy.com.nycschoollist.R;
 import security.bercy.com.nycschoollist.SchoolApplication;
 import security.bercy.com.nycschoollist.data.RemoteDataSource;
 import security.bercy.com.nycschoollist.model.School;
+import security.bercy.com.nycschoollist.view.schooldetails.SchoolDetails;
 
-public class SchoolList extends AppCompatActivity implements SchoolListContract.View{
+public class SchoolList extends AppCompatActivity implements SchoolListContract.View, SchoolListAdapter.SchoolListItemListener{
     public static final String TAG = "SchoolList";
     List<School> schoolList = new ArrayList<>();
 
@@ -71,4 +73,10 @@ public class SchoolList extends AppCompatActivity implements SchoolListContract.
         adapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onItemClicked(String dbn) {
+        Intent intent = new Intent(this, SchoolDetails.class);
+        intent.putExtra("dbn",dbn);
+        startActivity(intent);
+    }
 }

@@ -26,12 +26,16 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.Vi
 
     List<School> schoolList;
     Context context;
+    SchoolListItemListener listener;
+
+
+
     public SchoolListAdapter(Context context,List<School> schoolList) {
         this.context = context;
         this.schoolList = schoolList;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
 
         TextView schoolName;
@@ -39,9 +43,14 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.Vi
 
         public ViewHolder(View itemView) {
             super(itemView);
-
             schoolName = itemView.findViewById(R.id.tv_school_name);
+            itemView.setOnClickListener(this);
 
+        }
+
+        @Override
+        public void onClick(View view) {
+            listener.onItemClicked(schoolList.get(getLayoutPosition()).getDbn());
         }
     }
 
@@ -68,5 +77,10 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.Vi
         return schoolList.size();
     }
 
+
+    //retrieve dbn to make another call
+    interface SchoolListItemListener {
+        void onItemClicked(String dbn);
+    }
 
 }

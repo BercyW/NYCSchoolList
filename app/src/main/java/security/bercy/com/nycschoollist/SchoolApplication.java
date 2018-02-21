@@ -10,6 +10,7 @@ import security.bercy.com.nycschoollist.di.component.DaggerAppComponent;
 import security.bercy.com.nycschoollist.di.component.SchoolDetailsComponent;
 import security.bercy.com.nycschoollist.di.component.SchoolListComponent;
 import security.bercy.com.nycschoollist.di.module.AppModule;
+import security.bercy.com.nycschoollist.di.module.SchoolDetailsModule;
 import security.bercy.com.nycschoollist.di.module.SchoolListModule;
 
 /**
@@ -20,6 +21,7 @@ public class SchoolApplication extends Application{
     public static final String BASEURL = "https://data.cityofnewyork.us/resource/";
     private AppComponent appComponent;
     private SchoolListComponent schoolListComponent;
+    private SchoolDetailsComponent schoolDetailsComponent;
 
     public static final String TAG = "application";
     @Override
@@ -42,9 +44,19 @@ public class SchoolApplication extends Application{
         return schoolListComponent;
     }
 
+    public SchoolDetailsComponent getSchoolDetailsComponent() {
+        schoolDetailsComponent = appComponent.plus(new SchoolDetailsModule());
+        return schoolDetailsComponent;
+    }
+
+
 
     public void clearSchoolListComponent() {
         schoolListComponent = null;
+
+    }
+    public void clearSchoolDetailsComponent() {
+        schoolDetailsComponent = null;
 
     }
 
