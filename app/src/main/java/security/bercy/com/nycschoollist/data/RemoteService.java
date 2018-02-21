@@ -16,6 +16,6 @@ public interface RemoteService{
 
 
     @GET("97mf-9njv.json")
-    Call<List<School>> getSchoolName();
+    Call<List<School>> getSchool();
 
 }

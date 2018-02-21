@@ -3,6 +3,8 @@ package security.bercy.com.nycschoollist;
 import android.app.Application;
 
 import security.bercy.com.nycschoollist.di.component.AppComponent;
+
+import security.bercy.com.nycschoollist.di.component.DaggerAppComponent;
 import security.bercy.com.nycschoollist.di.component.SchoolDetailsComponent;
 import security.bercy.com.nycschoollist.di.component.SchoolListComponent;
 import security.bercy.com.nycschoollist.di.module.AppModule;
@@ -26,8 +28,10 @@ public class SchoolApplication extends Application{
                 .appModule(appModule)
                 .build();
 
-
-
-
     }
+
+
+
+
+
 }
