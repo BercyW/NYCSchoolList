@@ -74,9 +74,9 @@ public class SchoolList extends AppCompatActivity implements SchoolListContract.
     }
 
     @Override
-    public void onItemClicked(String dbn) {
+    public void onItemClicked(School school) {
         Intent intent = new Intent(this, SchoolDetails.class);
-        intent.putExtra("dbn",dbn);
+        intent.putExtra("school",school);
         startActivity(intent);
     }
 }

@@ -1,5 +1,6 @@
 package security.bercy.com.nycschoollist.view.schooldetails;
 
+import security.bercy.com.nycschoollist.model.School;
 import security.bercy.com.nycschoollist.utils.BasePresenter;
 import security.bercy.com.nycschoollist.utils.BaseView;
 import security.bercy.com.nycschoollist.view.schoollist.SchoolList;
@@ -15,7 +16,7 @@ public interface SchoolDetailsContract {
         void setWriting(String writing);
     }
     interface Presenter extends BasePresenter<View>{
-        void initData(SchoolList school);
+        void initData(School school);
     }
 
 

@@ -6,6 +6,8 @@ import java.util.List;
 import io.reactivex.Observer;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
+import security.bercy.com.nycschoollist.model.SAT;
 import security.bercy.com.nycschoollist.model.School;
 
 /**
@@ -19,6 +21,6 @@ public interface RemoteService{
     Call<List<School>> getSchool();
 
     @GET("734v-jeq5.json")
-    Call<>
+    Call<SAT> getSAT(@Query("dbn") String dbn);
 
 }

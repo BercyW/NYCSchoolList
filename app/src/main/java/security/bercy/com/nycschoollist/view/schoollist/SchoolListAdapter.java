@@ -32,6 +32,7 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.Vi
 
     public SchoolListAdapter(Context context,List<School> schoolList) {
         this.context = context;
+        this.listener = (SchoolListItemListener) context;
         this.schoolList = schoolList;
     }
 
@@ -50,7 +51,7 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.Vi
 
         @Override
         public void onClick(View view) {
-            listener.onItemClicked(schoolList.get(getLayoutPosition()).getDbn());
+            listener.onItemClicked(schoolList.get(getLayoutPosition()));
         }
     }
 
@@ -80,7 +81,7 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.Vi
 
     //retrieve dbn to make another call
     interface SchoolListItemListener {
-        void onItemClicked(String dbn);
+        void onItemClicked(School school);
     }
 
 }
