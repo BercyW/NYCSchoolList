@@ -4,18 +4,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Math Score:"
+        android:textSize="29sp"
+        />
     <TextView
         android:id="@+id/tv_math"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reading Score:"
+        android:textSize="29sp"
+        />
     <TextView
         android:id="@+id/tv_reading"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Writing Score:"
+        android:textSize="29sp"
+        />
     <TextView
         android:id="@+id/tv_writing"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        />
 </LinearLayout>

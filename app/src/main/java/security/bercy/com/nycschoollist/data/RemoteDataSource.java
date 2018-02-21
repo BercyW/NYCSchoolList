@@ -44,7 +44,7 @@ public class RemoteDataSource {
         return remoteService.getSchool();
     }
 
-    public static Call<SAT> getSAT(String dbn){
+    public static Call<List<SAT>> getSAT(String dbn){
         Retrofit retrofit = create();
         RemoteService remoteService = retrofit.create(RemoteService.class);
         return remoteService.getSAT(dbn);

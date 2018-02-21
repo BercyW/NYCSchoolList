@@ -21,6 +21,6 @@ public interface RemoteService{
     Call<List<School>> getSchool();
 
     @GET("734v-jeq5.json")
-    Call<SAT> getSAT(@Query("dbn") String dbn);
+    Call<List<SAT>> getSAT(@Query("dbn") String dbn);
 
 }

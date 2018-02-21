@@ -3,11 +3,13 @@ package security.bercy.com.nycschoollist.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by Bercy on 2/21/18.
  */
 
-public class SAT {
+public class SAT implements Serializable{
 
     @SerializedName("dbn")
     @Expose
@@ -77,3 +79,5 @@ public class SAT {
     }
 
 }
+
+

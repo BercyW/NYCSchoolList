@@ -27,6 +27,7 @@ public class SchoolDetails extends AppCompatActivity implements SchoolDetailsCon
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_school_details);
         setupDaggerComponent();
         presenter.attachView(this);
         bindViews();
