@@ -41,7 +41,6 @@ public class SchoolList extends AppCompatActivity implements SchoolListContract.
         setupDaggerComponent();
         presenter.attachView(this);
         presenter.getSchool();
-        Log.d(TAG, "onCreate:111 "+schoolList);
         setupRecipeRecyclerView();
 
     }

@@ -52,14 +52,14 @@ public class SchoolListPresenter implements SchoolListContract.Presenter {
             public void onResponse(Call<List<School>> call, Response<List<School>> response) {
 
                 schoolList = response.body();
-                Log.d(TAG, "onResponse: ");
+
                 view.updateSchool(schoolList);
             }
 
 
             @Override
             public void onFailure(Call<List<School>> call, Throwable t) {
-                Log.d(TAG, "onFailure: " + call);
+                Log.d(TAG, "onFailure: " + t);
             }
         });
 
