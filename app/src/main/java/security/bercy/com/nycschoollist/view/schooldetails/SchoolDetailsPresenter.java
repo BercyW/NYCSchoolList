@@ -6,6 +6,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,8 +23,14 @@ public class SchoolDetailsPresenter implements SchoolDetailsContract.Presenter {
 
     public static final String TAG = "detail";
     SchoolDetailsContract.View view;
-
+    RemoteDataSource remoteDataSource;
     List<SAT> sats = new ArrayList<>();
+
+
+    @Inject
+    public SchoolDetailsPresenter(RemoteDataSource remoteDataSource) {
+        this.remoteDataSource = remoteDataSource;
+    }
 
     @Override
     public void attachView(SchoolDetailsContract.View view) {
@@ -37,7 +45,7 @@ public class SchoolDetailsPresenter implements SchoolDetailsContract.Presenter {
     @Override
     public void initData(School school) {
 
-        final Call<List<SAT>> SATCall =  RemoteDataSource.getSAT(school.getDbn());
+        final Call<List<SAT>> SATCall =  remoteDataSource.getSAT(school.getDbn());
         Log.d(TAG, "initData: "+school.getDbn());
 
         SATCall.enqueue(new Callback<List<SAT>>() {

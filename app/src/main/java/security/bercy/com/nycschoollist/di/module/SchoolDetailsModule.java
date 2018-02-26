@@ -2,6 +2,7 @@ package security.bercy.com.nycschoollist.di.module;
 
 import dagger.Module;
 import dagger.Provides;
+import security.bercy.com.nycschoollist.data.RemoteDataSource;
 import security.bercy.com.nycschoollist.di.scope.ActivityScope;
 import security.bercy.com.nycschoollist.view.schooldetails.SchoolDetailsPresenter;
 
@@ -14,8 +15,8 @@ public class SchoolDetailsModule {
 
     @ActivityScope
     @Provides
-    SchoolDetailsPresenter provideSchoolDetailPresenter() {
-        return new SchoolDetailsPresenter();
+    SchoolDetailsPresenter provideSchoolDetailPresenter(RemoteDataSource remoteDataSource) {
+        return new SchoolDetailsPresenter(remoteDataSource);
     }
 
 
