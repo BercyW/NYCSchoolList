@@ -36,7 +36,7 @@ public class RemoteDataSource {
         this.context = context;
     }
 
-    public static Call<List<School>> getSchool() {
+    public Call<List<School>> getSchool() {
 
         Retrofit retrofit = create();
         RemoteService remoteService =retrofit.create(RemoteService.class);
@@ -44,7 +44,7 @@ public class RemoteDataSource {
         return remoteService.getSchool();
     }
 
-    public static Call<List<SAT>> getSAT(String dbn){
+    public Call<List<SAT>> getSAT(String dbn){
         Retrofit retrofit = create();
         RemoteService remoteService = retrofit.create(RemoteService.class);
         return remoteService.getSAT(dbn);
@@ -52,7 +52,7 @@ public class RemoteDataSource {
     }
 
 
-    public static Retrofit create() {
+    public  Retrofit create() {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)

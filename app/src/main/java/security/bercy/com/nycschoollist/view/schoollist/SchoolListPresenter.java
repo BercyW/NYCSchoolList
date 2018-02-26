@@ -44,7 +44,7 @@ public class SchoolListPresenter implements SchoolListContract.Presenter {
     @Override
     public void getSchool() {
 
-        final Call<List<School>> schoolCall =  RemoteDataSource.getSchool();
+        final Call<List<School>> schoolCall =  remoteDataSource.getSchool();
 
         
         schoolCall.enqueue(new Callback<List<School>>() {

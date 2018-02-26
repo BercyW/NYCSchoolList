@@ -34,6 +34,7 @@ public class SchoolApplication extends Application{
                 .build();
 
     }
+
     public static SchoolApplication get(Context context) {
         return (SchoolApplication) context.getApplicationContext();
     }
