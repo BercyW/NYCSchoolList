@@ -52,9 +52,7 @@ public class SchoolDetailsPresenter implements SchoolDetailsContract.Presenter {
             @Override
             public void onResponse(Call<List<SAT>> call, Response<List<SAT>> response) {
                 sats = response.body();
-                Log.d(TAG, "onResponse: ");
                 if(sats.isEmpty()) {
-                    Log.d(TAG, "onResponse: getting here "+sats);
                     view.showError("No SAT Score!");
 
                 }else {
