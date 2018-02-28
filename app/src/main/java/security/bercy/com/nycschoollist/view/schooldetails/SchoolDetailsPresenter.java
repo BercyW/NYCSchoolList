@@ -43,7 +43,7 @@ public class SchoolDetailsPresenter implements SchoolDetailsContract.Presenter {
     }
 
     @Override
-    public void initData(School school) {
+    public void initData(final School school) {
 
         final Call<List<SAT>> SATCall =  remoteDataSource.getSAT(school.getDbn());
         Log.d(TAG, "initData: "+school.getDbn());
@@ -52,9 +52,17 @@ public class SchoolDetailsPresenter implements SchoolDetailsContract.Presenter {
             @Override
             public void onResponse(Call<List<SAT>> call, Response<List<SAT>> response) {
                 sats = response.body();
-                view.setMath(sats.get(0).getSatMathAvgScore());
-                view.setReading(sats.get(0).getSatCriticalReadingAvgScore());
-                view.setWriting(sats.get(0).getSatWritingAvgScore());
+                Log.d(TAG, "onResponse: ");
+                if(sats.isEmpty()) {
+                    Log.d(TAG, "onResponse: getting here "+sats);
+                    view.showError("No SAT Score!");
+
+                }else {
+
+                    view.setMath(sats.get(0).getSatMathAvgScore());
+                    view.setReading(sats.get(0).getSatCriticalReadingAvgScore());
+                    view.setWriting(sats.get(0).getSatWritingAvgScore());
+                }
             }
 
             @Override
